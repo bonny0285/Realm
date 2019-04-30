@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B409AE122278DE57007403D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409AE112278DE57007403D4 /* Constants.swift */; };
 		B4133CD3226FA09F00442000 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4133CD2226FA09F00442000 /* AppDelegate.swift */; };
 		B4133CD5226FA09F00442000 /* BeginRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4133CD4226FA09F00442000 /* BeginRunVC.swift */; };
 		B4133CD7226FA09F00442000 /* BeginLogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4133CD6226FA09F00442000 /* BeginLogVC.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		421B35E070518B16258BCF80 /* Pods-Treads.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Treads.release.xcconfig"; path = "Target Support Files/Pods-Treads/Pods-Treads.release.xcconfig"; sourceTree = "<group>"; };
 		A88AF4DF40BA79F9D3C9F4EF /* Pods_Treads.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Treads.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B409AE112278DE57007403D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4133CCF226FA09F00442000 /* Treads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4133CD2226FA09F00442000 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4133CD4226FA09F00442000 /* BeginRunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginRunVC.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		B4133CE8226FA0CD00442000 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B409AE112278DE57007403D4 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				B4133CD5226FA09F00442000 /* BeginRunVC.swift in Sources */,
 				B4703D1D2278D7BE00D5187E /* Run.swift in Sources */,
 				B4133D3B2270F37700442000 /* CurrentRunVC.swift in Sources */,
+				B409AE122278DE57007403D4 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
