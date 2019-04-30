@@ -55,6 +55,7 @@
 		B4133D3B2270F37700442000 /* CurrentRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4133D3A2270F37700442000 /* CurrentRunVC.swift */; };
 		B4133D3D2270F54700442000 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4133D3C2270F54700442000 /* LocationVC.swift */; };
 		B4133D3F2277825E00442000 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4133D3E2277825E00442000 /* Extensions.swift */; };
+		B4703D1D2278D7BE00D5187E /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4703D1C2278D7BE00D5187E /* Run.swift */; };
 		F1816C46676BB63E2327DEA5 /* Pods_Treads.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A88AF4DF40BA79F9D3C9F4EF /* Pods_Treads.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		B4133D3A2270F37700442000 /* CurrentRunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentRunVC.swift; sourceTree = "<group>"; };
 		B4133D3C2270F54700442000 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		B4133D3E2277825E00442000 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B4703D1C2278D7BE00D5187E /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		F2B0F3B587BCE1186B0E85A9 /* Pods-Treads.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Treads.debug.xcconfig"; path = "Target Support Files/Pods-Treads/Pods-Treads.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,6 +254,7 @@
 		B4133CEB226FA0F600442000 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B4703D1C2278D7BE00D5187E /* Run.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,7 +265,6 @@
 				F2B0F3B587BCE1186B0E85A9 /* Pods-Treads.debug.xcconfig */,
 				421B35E070518B16258BCF80 /* Pods-Treads.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -432,6 +434,7 @@
 				B4133CD7226FA09F00442000 /* BeginLogVC.swift in Sources */,
 				B4133CD3226FA09F00442000 /* AppDelegate.swift in Sources */,
 				B4133CD5226FA09F00442000 /* BeginRunVC.swift in Sources */,
+				B4703D1D2278D7BE00D5187E /* Run.swift in Sources */,
 				B4133D3B2270F37700442000 /* CurrentRunVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
