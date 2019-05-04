@@ -34,3 +34,13 @@ extension Int{
         }
     }
 }
+
+extension NSDate{
+    func getDateSting() -> String{
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: self as Date)
+        let day = calendar.component(.day, from: self as Date)
+        let year = calendar.component(.year, from: self as Date)
+        return "\(month)/\(day)/\(year)"
+    }
+}

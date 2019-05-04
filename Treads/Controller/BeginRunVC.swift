@@ -19,6 +19,8 @@ class BeginRunVC: LocationVC {
         super.viewDidLoad()
         checkLocationAuthStatus()
         mapView.delegate = self
+       // Run.getAllRuns()
+        //print("here are my runs: \(Run.getAllRuns())")
     }
 
     

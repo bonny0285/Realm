@@ -33,6 +33,7 @@ class CurrentRunVC: LocationVC {
         sliderImageView.addGestureRecognizer(swipeGesture)
         sliderImageView.isUserInteractionEnabled = true
         swipeGesture.delegate = self as? UIGestureRecognizerDelegate
+        Run.addRUnToReal(pace: pace, distance: runDistance, duration: counter)
     }
     
     
