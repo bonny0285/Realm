@@ -26,7 +26,7 @@ class CurrentRunVC: LocationVC {
    fileprivate var counter = 0
    fileprivate var timer = Timer()
    fileprivate var pace = 0
-   fileprivate var coordinateLocations = List<Location>()
+   var coordinateLocations = List<Location>()
     
     
 
