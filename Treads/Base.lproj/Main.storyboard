@@ -454,6 +454,7 @@
                                                 <constraint firstItem="BUj-BA-kvw" firstAttribute="centerY" secondItem="Af0-pF-dj3" secondAttribute="centerY" id="fjC-RG-ddH"/>
                                                 <constraint firstItem="BUj-BA-kvw" firstAttribute="centerX" secondItem="Af0-pF-dj3" secondAttribute="centerX" id="hKy-qz-trD"/>
                                                 <constraint firstItem="pve-NZ-CHO" firstAttribute="trailing" secondItem="Af0-pF-dj3" secondAttribute="trailingMargin" constant="8" id="lKu-r4-SnG"/>
+                                                <constraint firstItem="pve-NZ-CHO" firstAttribute="leading" secondItem="BUj-BA-kvw" secondAttribute="trailing" constant="109" id="zgb-yc-qwv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
