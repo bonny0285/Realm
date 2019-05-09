@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import MapKit
 import RealmSwift
 
 class Run: Object {
@@ -16,6 +18,9 @@ class Run: Object {
     @objc dynamic  var distance = 0.0
     @objc dynamic  var duration = 0
     dynamic var locations = List<Location>()
+   // @objc dynamic var lacations = [Location]()
+    
+    
     
     
     override static func primaryKey() -> String? {
@@ -30,6 +35,7 @@ class Run: Object {
     }
     
     convenience init(pace: Int, distance: Double, duration: Int, locations: List<Location>) {
+    
         self.init()
         self.id = UUID().uuidString.lowercased()
         self.date = NSDate()
@@ -41,15 +47,18 @@ class Run: Object {
     }
     
     static func addRUnToReal(pace: Int, distance: Double, duration: Int, locations : List<Location>){
-        print(#function)
+    
+        print("addRunToReal \(locations)")
         
         REALM_QUEUE.sync {
             
             let run = Run(pace: pace, distance: distance, duration: duration, locations: locations)
+            
             do {
                 let realm = try Realm(configuration: RealConfig.runDataConfig)
                 try! realm.write {
                     realm.add(run)
+                    print("RUN \(run)")
                     try! realm.commitWrite()
                 }
             } catch {
@@ -66,7 +75,7 @@ class Run: Object {
             let realm = try Realm(configuration: RealConfig.runDataConfig)
             var runs = realm.objects(Run.self)
             runs = runs.sorted(byKeyPath: "date", ascending: false)
-            //print("dati in tabella   \(runs)")
+            print("dati in tabella   \(runs)")
             return runs
         } catch {
             return nil

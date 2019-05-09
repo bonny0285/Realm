@@ -26,7 +26,7 @@ class CurrentRunVC: LocationVC {
    fileprivate var counter = 0
    fileprivate var timer = Timer()
    fileprivate var pace = 0
-   var coordinateLocations = List<Location>()
+   fileprivate var coordinateLocations = List<Location>()
     
     
 
@@ -61,6 +61,7 @@ class CurrentRunVC: LocationVC {
         // add our object to Realm
         pauseRun()
         Run.addRUnToReal(pace: pace, distance: runDistance, duration: counter, locations: coordinateLocations)
+        //print("coooordinate\(coordinateLocations.first)")
     }
     
     
@@ -141,7 +142,9 @@ extension CurrentRunVC: CLLocationManagerDelegate{
             startLocation = locations.first
         } else if let locations = locations.last {
             runDistance += lastLocation.distance(from: locations)
+            
             let newLocation = Location(latitude: Double(lastLocation.coordinate.latitude), longitude: Double(lastLocation.coordinate.longitude))
+            print("newww location\(newLocation)")
             coordinateLocations.insert(newLocation, at: 0)
             distanceLbl.text = "\(runDistance.metersToMiles(places: 2))"//for converted km to miles
             if counter > 0 && runDistance > 0 {

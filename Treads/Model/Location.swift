@@ -7,16 +7,28 @@
 //
 
 import UIKit
+import MapKit
 import RealmSwift
+import CoreLocation
 
 class Location: Object {
     dynamic public private(set) var latitude = 0.0
     dynamic public private(set) var longitude = 0.0
+    //var cllocation = CLLocationManager()
+   // dynamic public private(set) var newLocation = CLLocationCoordinate2D()
     
     
-   convenience init(latitude: Double, longitude: Double) {
+    convenience init(latitude: Double, longitude: Double) {
     self.init()
         self.latitude = latitude
         self.longitude = longitude
+        //self.newLocation = newLocation
     }
+    func getUserLocation(){
+    
+    }
+    
 }
+
+
+
