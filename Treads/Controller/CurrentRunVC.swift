@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import RealmSwift
 
 class CurrentRunVC: LocationVC {
     
@@ -18,12 +19,14 @@ class CurrentRunVC: LocationVC {
     @IBOutlet weak var paceLbl: UILabel!
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var pauseBtn: UIButton!
-    var startLocation: CLLocation!
-    var lastLocation: CLLocation!
-    var runDistance = 0.0
-    var counter = 0
-    var timer = Timer()
-    var pace = 0
+    
+   fileprivate var startLocation: CLLocation!
+   fileprivate var lastLocation: CLLocation!
+   fileprivate var runDistance = 0.0
+   fileprivate var counter = 0
+   fileprivate var timer = Timer()
+   fileprivate var pace = 0
+   fileprivate var coordinateLocations = List<Location>()
     
     
 
@@ -33,6 +36,7 @@ class CurrentRunVC: LocationVC {
         sliderImageView.addGestureRecognizer(swipeGesture)
         sliderImageView.isUserInteractionEnabled = true
         swipeGesture.delegate = self as? UIGestureRecognizerDelegate
+      //  Run.addRUnToReal(pace: pace, distance: runDistance, duration: counter, locations: coordinateLocations)
     }
     
     
@@ -55,6 +59,9 @@ class CurrentRunVC: LocationVC {
     func endRun(){
         manager?.startUpdatingLocation()
         // add our object to Realm
+        pauseRun()
+        Run.addRUnToReal(pace: pace, distance: runDistance, duration: counter, locations: coordinateLocations)
+        //print("coooordinate\(coordinateLocations.first)")
     }
     
     
@@ -135,6 +142,10 @@ extension CurrentRunVC: CLLocationManagerDelegate{
             startLocation = locations.first
         } else if let locations = locations.last {
             runDistance += lastLocation.distance(from: locations)
+            
+            let newLocation = Location(latitude: Double(lastLocation.coordinate.latitude), longitude: Double(lastLocation.coordinate.longitude))
+            print("newww location\(newLocation)")
+            coordinateLocations.insert(newLocation, at: 0)
             distanceLbl.text = "\(runDistance.metersToMiles(places: 2))"//for converted km to miles
             if counter > 0 && runDistance > 0 {
                 paceLbl.text = calculatePace(time: counter, miles: runDistance.metersToMiles(places: 2))

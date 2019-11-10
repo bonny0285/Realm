@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class LocationVC: UIViewController, MKMapViewDelegate {
     
@@ -26,6 +27,6 @@ class LocationVC: UIViewController, MKMapViewDelegate {
             manager?.requestWhenInUseAuthorization()
         }
     }
-
-
+    
+   
 }
