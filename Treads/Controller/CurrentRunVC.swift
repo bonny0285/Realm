@@ -13,6 +13,8 @@ import RealmSwift
 
 class CurrentRunVC: LocationVC {
     
+    //MARK: - Outlets
+    
     @IBOutlet weak var swipeBGimageView: UIImageView!    
     @IBOutlet weak var sliderImageView: UIImageView!
     @IBOutlet weak var durationLbl: UILabel!
@@ -20,25 +22,26 @@ class CurrentRunVC: LocationVC {
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var pauseBtn: UIButton!
     
-   fileprivate var startLocation: CLLocation!
-   fileprivate var lastLocation: CLLocation!
-   fileprivate var runDistance = 0.0
-   fileprivate var counter = 0
-   fileprivate var timer = Timer()
-   fileprivate var pace = 0
-   fileprivate var coordinateLocations = List<Location>()
+    //MARK: - Properties
     
+    fileprivate var startLocation: CLLocation!
+    fileprivate var lastLocation: CLLocation!
+    fileprivate var runDistance = 0.0
+    fileprivate var counter = 0
+    fileprivate var timer = Timer()
+    fileprivate var pace = 0
+    fileprivate var coordinateLocations = List<Location>()
     
-
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(endRunSwiped(sender:)))
         sliderImageView.addGestureRecognizer(swipeGesture)
         sliderImageView.isUserInteractionEnabled = true
         swipeGesture.delegate = self as? UIGestureRecognizerDelegate
-      //  Run.addRUnToReal(pace: pace, distance: runDistance, duration: counter, locations: coordinateLocations)
+        //  Run.addRUnToReal(pace: pace, distance: runDistance, duration: counter, locations: coordinateLocations)
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         manager?.delegate = self
@@ -46,17 +49,15 @@ class CurrentRunVC: LocationVC {
         startRun()
     }
     
+    //MARK: - Methods
     
-    
-    func startRun(){
+    func startRun() {
         manager?.startUpdatingLocation()
         startTimer()
         pauseBtn.setImage(#imageLiteral(resourceName: "pauseButton"), for: .normal)
     }
     
-    
-    
-    func endRun(){
+    func endRun() {
         manager?.startUpdatingLocation()
         // add our object to Realm
         pauseRun()
@@ -64,8 +65,7 @@ class CurrentRunVC: LocationVC {
         //print("coooordinate\(coordinateLocations.first)")
     }
     
-    
-    func pauseRun(){
+    func pauseRun() {
         startLocation = nil
         lastLocation = nil
         timer.invalidate()
@@ -73,30 +73,22 @@ class CurrentRunVC: LocationVC {
         pauseBtn.setImage(#imageLiteral(resourceName: "resumeButton"), for: .normal)
     }
     
-    func startTimer(){
+    func startTimer() {
         durationLbl.text = counter.formatTimeDurationToString()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
-    @objc func updateCounter(){
-        counter += 1
-        durationLbl.text = counter.formatTimeDurationToString()
-    }
-    
-    func calculatePace(time seconds: Int, miles: Double) -> String{
+    func calculatePace(time seconds: Int, miles: Double) -> String {
         pace = Int(Double(seconds) / miles)
         return pace.formatTimeDurationToString()
     }
     
-    @IBAction func pauseBtnPressed(_ sender: Any) {
-        if timer.isValid {
-            pauseRun()
-        } else {
-            startRun()
-        }
-        
-    }
+    //MARK: - Actions
     
+    @objc func updateCounter() {
+        counter += 1
+        durationLbl.text = counter.formatTimeDurationToString()
+    }
     
     @objc func endRunSwiped(sender: UIPanGestureRecognizer){
         let minAdjust: CGFloat = 80
@@ -124,10 +116,17 @@ class CurrentRunVC: LocationVC {
         }
     }
     
-    
-
+    @IBAction func pauseBtnPressed(_ sender: Any) {
+        if timer.isValid {
+            pauseRun()
+        } else {
+            startRun()
+        }
+        
+    }
 }
 
+//MARK: - CLLocationManagerDelegate
 
 extension CurrentRunVC: CLLocationManagerDelegate{
     

@@ -12,8 +12,11 @@ import CoreLocation
 
 class LocationVC: UIViewController, MKMapViewDelegate {
     
-    
+    //MARK: - Properties
+
     var manager: CLLocationManager?
+
+    //MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +25,11 @@ class LocationVC: UIViewController, MKMapViewDelegate {
         manager?.activityType = .fitness
     }
     
+    //MARK: - Methods
+
     func checkLocationAuthStatus(){
         if CLLocationManager.authorizationStatus() != .authorizedWhenInUse{
             manager?.requestWhenInUseAuthorization()
         }
     }
-    
-   
 }

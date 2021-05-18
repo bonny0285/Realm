@@ -12,30 +12,23 @@ import MapKit
 import RealmSwift
 
 class Run: Object {
+    
     @objc dynamic  var id = ""
     @objc dynamic  var date = NSDate()
     @objc dynamic  var pace = 0
     @objc dynamic  var distance = 0.0
     @objc dynamic  var duration = 0
     dynamic var locations = List<Location>()
-   // @objc dynamic var lacations = [Location]()
-    
-    
-    
     
     override static func primaryKey() -> String? {
-        print(#function)
         return "id"
     }
     
-    
     override static func indexedProperties() -> [String] {
-        print(#function)
         return ["pace", "date", "duration"]
     }
     
     convenience init(pace: Int, distance: Double, duration: Int, locations: List<Location>) {
-    
         self.init()
         self.id = UUID().uuidString.lowercased()
         self.date = NSDate()
@@ -46,9 +39,7 @@ class Run: Object {
         print(id, date, pace, distance, duration)
     }
     
-    static func addRUnToReal(pace: Int, distance: Double, duration: Int, locations : List<Location>){
-    
-        print("addRunToReal \(locations)")
+    static func addRUnToReal(pace: Int, distance: Double, duration: Int, locations : List<Location>) {
         
         REALM_QUEUE.sync {
             
@@ -66,8 +57,6 @@ class Run: Object {
             }
         }
     }
-    
-    
     
     static func getAllRuns() -> Results<Run>? {
         print(#function)

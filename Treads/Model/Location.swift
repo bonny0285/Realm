@@ -12,8 +12,9 @@ import RealmSwift
 import CoreLocation
 
 class Location: Object {
-    dynamic public private(set) var latitude = 0.0
-    dynamic public private(set) var longitude = 0.0
+    
+    @objc dynamic public private(set) var latitude = 0.0
+    @objc dynamic public private(set) var longitude = 0.0
     //var cllocation = CLLocationManager()
    // dynamic public private(set) var newLocation = CLLocationCoordinate2D()
     
